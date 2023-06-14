@@ -17,6 +17,30 @@
 
 <body>
 
+<h1>{{ $title }}</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach ($cards as $elem)
+          <div class="col-2">
+            <div class="card">
+                <img class="card-img-top" src="{{ $elem->thumb }}" widht="70px" alt="">
+                <div class="card-body">
+                    <a href="{{ route('comic.show',  $elem->id) }}"> 
+                        <h4 class="card-title">{{$elem->title}} </h4>
+                    </a>
+                    
+                    <p class="card-text">{{ $elem->description }}</p>
+                </div>
+            </div>
+          </div>
+
+        @endforeach
+    </div>
+</div> 
+
+
+
 
 
 </body>

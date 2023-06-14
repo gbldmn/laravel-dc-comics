@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Card;
 use Illuminate\Http\Request;
 
+
 class CardController extends Controller
 {
     /**
@@ -14,7 +15,11 @@ class CardController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'pagina Card';
+
+         $cards = Card::All();
+
+        return view('welcome', compact('title', 'cards'));
     }
 
     /**
@@ -24,7 +29,7 @@ class CardController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -35,7 +40,8 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $form_data = $request->all();
+         
     }
 
     /**
@@ -44,9 +50,11 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function show(Card $card)
+    public function show($id)
     {
-        //
+        $card = Card::findOrFail($id);
+        
+       return view('show', compact('card'));
     }
 
     /**
