@@ -41,7 +41,14 @@ class CardController extends Controller
     public function store(Request $request)
     {
          $form_data = $request->all();
-         
+         $new_card = new Card();
+         $new_card->fill( $form_data );
+
+         $new_card->save();
+
+
+
+        //  return redirect()->route('/welcome');
     }
 
     /**
