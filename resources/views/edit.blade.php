@@ -14,7 +14,7 @@
 <h2>Modifica un nuovo comics</h2>
         <div class="row justify-content-center">
             <div class="col-7">
-                <form action="{{ route('comic.update', $card) }}" method="POST">
+                <form action="{{ route('comic.update', $card->id ) }}" method="POST">
                  
                 @csrf
                 @method('PUT')

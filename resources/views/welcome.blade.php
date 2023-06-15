@@ -31,9 +31,9 @@
                     </a>
                     
                     <p class="card-text">{{ $elem->description }}</p>
-                    <a class="btn btn-warning" href="{{ route('comic.edit', $elem) }}">Modifica</a>
+                    <a class="btn btn-warning" href="{{ route('comic.edit', $elem->id) }}">Modifica</a>
 
-                    <form action="{{ route('comic.destroy', $elem) }}" method="POST">
+                    <form action="{{ route('comic.destroy', $elem->id) }}" method="POST">
                         @csrf 
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">elimina</button>
