@@ -14,6 +14,6 @@ use App\Http\Controllers\CardController;
 |
 */
 
- Route::get('/', [ CardController::class, 'index' ]);
+ Route::get('/', [ CardController::class, 'index' ])->name('home');
 
  Route::resource('/comic', CardController::class);

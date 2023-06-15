@@ -48,7 +48,7 @@ class CardController extends Controller
 
 
 
-        //  return redirect()->route('/welcome');
+          return redirect()->route('home');
     }
 
     /**
@@ -72,7 +72,7 @@ class CardController extends Controller
      */
     public function edit(Card $card)
     {
-        //
+        return view('edit', compact('card'));
     }
 
     /**
@@ -84,7 +84,11 @@ class CardController extends Controller
      */
     public function update(Request $request, Card $card)
     {
-        //
+        $form_data = $request->all();
+        $card->update($form_data);
+
+
+        return redirect()->route('home');
     }
 
     /**
@@ -95,6 +99,8 @@ class CardController extends Controller
      */
     public function destroy(Card $card)
     {
-        //
+        $card->delete();
+
+        return redirect()->route('home');
     }
 }
