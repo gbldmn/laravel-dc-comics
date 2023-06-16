@@ -40,6 +40,26 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate(
+            [    
+            'title' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required',
+            'sale_date' => 'required',
+            'description' => 'required',
+            ],
+            [   
+            'title.required' => 'non hai compilato il campo titolo',
+            'thumb.required' => 'non hai compilato il campo img',
+            'price.required' => 'non hai compilato il campo prezzo',
+            'series.required' => 'non hai compilato il campo serie',
+            'sale_date.required' => 'non hai compilato il campo serie',
+            'description.required' => 'non hai compilato il campo descizione',
+            ]
+        );
+
          $form_data = $request->all();
          $new_card = new Card();
          $new_card->fill( $form_data );
@@ -59,8 +79,8 @@ class CardController extends Controller
      */
     public function show($id)
     {
-        $card = Card::findOrFail($id);
-        
+         $card = Card::findOrFail($id);
+    
        return view('show', compact('card'));
     }
 

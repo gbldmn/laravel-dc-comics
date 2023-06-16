@@ -21,7 +21,7 @@
 
                     <div>
                         <label for="title">Titolo</label>
-                        <input class="form-control" type="text" id="title" name="title" value="{{ old('title') ?? $card->title }}">
+                        <input class="form-control"  type="text" id="title" name="title" value="{{ old('title') ?? $card->title }}">
                     </div>
                     <div>
                         <label for="thumb">Immagine</label>

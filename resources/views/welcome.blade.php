@@ -26,7 +26,7 @@
             <div class="card">
                 <img class="card-img-top w-100" width="100px" src="{{ $elem->thumb }}"  alt="">
                 <div class="card-body">
-                    <a href="{{ route('comic.show',  $elem->id) }}"> 
+                    <a href="{{ route('comic.show',  $elem->id ) }}"> 
                         <h4 class="card-title">{{$elem->title}} </h4>
                     </a>
                     
