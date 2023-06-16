@@ -106,6 +106,25 @@ class CardController extends Controller
     public function update(Request $request, $id)
     {
 
+        $request->validate(
+            [    
+            'title' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required',
+            'sale_date' => 'required',
+            'description' => 'required',
+            ],
+            [   
+            'title.required' => 'non hai compilato il campo titolo',
+            'thumb.required' => 'non hai compilato il campo img',
+            'price.required' => 'non hai compilato il campo prezzo',
+            'series.required' => 'non hai compilato il campo serie',
+            'sale_date.required' => 'non hai compilato il campo serie',
+            'description.required' => 'non hai compilato il campo descizione',
+            ]
+        );
+
         $form_data = $request->all();
         $card = Card::findOrFail($id);
         $card->update($form_data);
